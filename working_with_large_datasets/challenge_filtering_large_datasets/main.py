@@ -4,6 +4,9 @@ def filter_large_csv(input_file, output_file, column, threshold, chunk_size=1000
     first_chunk = True
 
     # Make sure the file is empty before we start
+    # Opening in write mode has two key effects:
+        # 1. If the file doesn’t exist yet, it creates a brand-new, empty file.
+        # 2. If the file does exist, it truncates its contents to zero length—that is, it throws away everything that was in the file.
     open(output_file, 'w').close()
 
     
